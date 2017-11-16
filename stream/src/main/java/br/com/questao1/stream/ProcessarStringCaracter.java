@@ -1,5 +1,6 @@
-package br.com.questao1;
+package br.com.questao1.stream;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +21,7 @@ public class ProcessarStringCaracter {
 	private static final List<Character> vogais=Arrays.asList('a','e','i','o','u');
 	
 	public static char processar(Stream input){
+		final List<Character> caracteres=new ArrayList<Character>();
 		final Map<Character, Boolean> caracteresValidos= new HashMap<Character, Boolean>();
 		
 		char caracterPesquisadoMenosUmaPosicao = 0,
@@ -29,18 +31,19 @@ public class ProcessarStringCaracter {
 			
 
 			char caracterPesquisado = input.getNext();
-			System.out.println(caracterPesquisado);
+		
 			if ( isVogal(caracterPesquisadoMenosDuasPosicoes) && 
 			    !isVogal(caracterPesquisadoMenosUmaPosicao) &&  
 			     isVogal(caracterPesquisado)  
 			   ) {
 				
-				 if(caracteresValidos.containsKey(caracterPesquisado))
+				 if(caracteresValidos.containsKey(caracterPesquisado) || caracteres.contains(caracterPesquisado))
 					 caracteresValidos.put(caracterPesquisado,false);
 				 else
 					 caracteresValidos.put(caracterPesquisado,true);
 			}
 		
+			caracteres.add(caracterPesquisado);
 			caracterPesquisadoMenosDuasPosicoes=caracterPesquisadoMenosUmaPosicao;
 			caracterPesquisadoMenosUmaPosicao=caracterPesquisado;
 		}		
@@ -52,11 +55,4 @@ public class ProcessarStringCaracter {
 	private static boolean isVogal(char c) {
 		return vogais.contains(c);
 	}
-	
-	public static void main(String[] args) {
-		Stream stream=new StreamImpl("aAbBABacafe");
-		char valor=ProcessarStringCaracter.processar(stream);
-		System.out.println(valor);
-	}
-
 }
