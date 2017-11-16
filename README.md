@@ -24,7 +24,8 @@ A aplicação foi desenvolvida baseando-se na arquitetura de microservicos com s
 
 ## Mocks
 
-	Mocks foram criados para testar os serviços implementados. Para criação dos mocks foiutilizada a biblioteca Mockito em conjundo com o junit.
+	Mocks foram criados para testar os serviços implementados. Para criação dos mocks foiutilizada a biblioteca 
+	Mockito em conjundo com o junit.
 
 
 
@@ -240,7 +241,10 @@ Para comunicar alterações realizadas para outros serviços foi implamentado um
  **REQUISITO 2:** O Cadastramento não pode ser influenciado pelo serviço das campanhas, caso o serviço das campanhas não esteja “UP”;
 ##
 
-	Foi utilizado o projeto Feign para contornar problemas de comunicação causado por queda de serviço. Este projeto permite a utilização de fallbacks para prover um comportamento padrão para o fluxo. O fallback é muito utilizado em  arquitetura de micro serviços onde temos que nos integrar com diversos serviços para que a aplicação como um todo funcione. 
+	Foi utilizado o projeto Feign para contornar problemas de comunicação causado por queda de serviço.
+	Este projeto permite a utilização de fallbacks para prover um comportamento padrão para o fluxo. 
+	O fallback é muito utilizado em  arquitetura de micro serviços onde temos que nos integrar com 
+	diversos serviços para que a aplicação como um todo funcione. 
 
 
 
@@ -250,9 +254,13 @@ Para comunicar alterações realizadas para outros serviços foi implamentado um
 
 ##
 
-	Para atender um grande numero de usuários a aplicação foi construida com base na arquitetura de microservicos que são soluções mais rápidas, seguras, altamente escaláveis e que não enfrentavam os problemas de uma arquitetura monolitica gerada pelo alto acoplamento.
+	Para atender um grande numero de usuários a aplicação foi construida com base na 
+	arquitetura de microservicos que são soluções mais rápidas, seguras, altamente escaláveis e 
+	que não enfrentavam os problemas de uma arquitetura monolitica gerada pelo alto acoplamento.
 
-	A principal ideia do microserviço é construir serviços que sejam pequenos, independentes e focados na resolução de um único problema dentro de um ecossistema de uma aplicação. Suas principais características são: alta coesao(único foco), reajam as falhas, autonomos e focado no negócio. 
+	A principal ideia do microserviço é construir serviços que sejam pequenos, independentes e 
+	focados na resolução de um único problema dentro de um ecossistema de uma aplicação. 
+	Suas principais características são: alta coesao(único foco), reajam as falhas, autonomos e focado no negócio. 
 
 
 
@@ -268,16 +276,23 @@ Para comunicar alterações realizadas para outros serviços foi implamentado um
 **QUESTAO 2**	O que é Deadlock? Detalhe um pouco sobre o caso e como você poderia resolver isso.
 ##
 	
-    O deadlock é quando dois ou mais processos deixam de seguir o fluxo normal de suas execuções devido um estar aguardando um recurso a ser liberado por outro. Isto pode ocorrer com frequencia em serviços com um grande número de acessos. 
-     Para resolver este tipo de problema podemos utilizar processamento assincrono, arquitetura orientada a serviço, pool de conexão para diminuir a concorrencia no acesso ao banco de dados e sistemas com mensageria.  
+    O deadlock é quando dois ou mais processos deixam de seguir o fluxo normal de suas 
+    execuções devido um estar aguardando um recurso a ser liberado por outro. Isto pode 
+    ocorrer com frequencia em serviços com um grande número de acessos. 
+     Para resolver este tipo de problema podemos utilizar processamento assincrono, 
+     arquitetura orientada a serviço, pool de conexão para diminuir a concorrencia 
+     no acesso ao banco de dados e sistemas com mensageria.  
    
 ## 
 **QUESTAO 3** Descreva com suas palavras quando qual é a diferença entre Stream e ParallelStream os dois e quando devemos utilizar cada um deles
 ##
 
-	Utilizando ParallelStream todas as operações intermediárias(filter,map,etc) serão executadas de forma otimizada utilizando threads com execuções em paralelo enquanto que  no Stream a execução é serial.
-	
-	O desempenho vai depender do tamanho do recurso que está sendo processado. Para o ParallelStream é interesante  que o recurso seja de tamanho consideravel, caso contrário, será menos eficiente devido a complexidade de sua execução.  
+	Utilizando ParallelStream todas as operações intermediárias(filter,map,etc) 
+	serão executadas de forma otimizada utilizando threads com execuções em paralelo 
+	enquanto que  no Stream a execução é serial.	
+	O desempenho vai depender do tamanho do recurso que está sendo processado. 
+	Para o ParallelStream é interesante  que o recurso seja de tamanho consideravel, 
+	caso contrário, será menos eficiente devido a complexidade de sua execução.  
     
     
     
